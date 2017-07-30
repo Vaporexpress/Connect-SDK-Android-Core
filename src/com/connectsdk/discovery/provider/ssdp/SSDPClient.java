@@ -132,8 +132,16 @@ public class SSDPClient {
         }
 
         if (datagramSocket != null) {
-            datagramSocket.disconnect();
-            datagramSocket.close();
+            /* LMO: Fix Android N (7.0) freeze on disconnect */
+            //datagramSocket.disconnect();
+            //datagramSocket.close();
+            if(datagramSocket.isConnected()) {
+                datagramSocket.disconnect();
+            }
+
+            if(!datagramSocket.isClosed()) {
+                datagramSocket.close();
+            }
         }
     }
 
