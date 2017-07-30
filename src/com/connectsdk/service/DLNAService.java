@@ -1342,7 +1342,7 @@ public class DLNAService extends DeviceService implements PlaylistControl, Media
                 int iVolume = 0;
                 try {
                     //noinspection ResultOfMethodCallIgnored
-                    Integer.parseInt(currentVolume);
+                    iVolume = Integer.parseInt(currentVolume);
                 } catch (RuntimeException ex) {
                     ex.printStackTrace();
                 }
