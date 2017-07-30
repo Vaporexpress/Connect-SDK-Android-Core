@@ -132,11 +132,23 @@ public final class Util {
     }
 
     public static boolean isIPv4Address(String ipAddress) {
+        /* Note: InetAddressUtils is Deprecated on SDK 23. This is a posible substitution
+        try {
+            return Inet4Address.getByName(ipAddress) != null;
+        } catch (UnknownHostException ex) {
+            return false;
+        }*/
         return InetAddressUtils.isIPv4Address(ipAddress);
     }
 
     public static boolean isIPv6Address(String ipAddress) {
-        return InetAddressUtils.isIPv6Address(ipAddress);
+        /* Note: InetAddressUtils is Deprecated on SDK 23. This is a posible substitution
+        try {
+            return Inet6Address.getByName(ipAddress) != null;
+        } catch (UnknownHostException ex) {
+            return false;
+        }*/
+         return InetAddressUtils.isIPv6Address(ipAddress);
     }
 
     public static InetAddress getIpAddress(Context context) throws UnknownHostException {
