@@ -1394,7 +1394,7 @@ public class DLNAService extends DeviceService implements PlaylistControl, Media
             @Override
             public void onSuccess(Object response) {
                 String currentMute = parseData((String) response, "CurrentMute");
-                boolean isMute = Boolean.parseBoolean(currentMute);
+                boolean isMute = currentMute.equals("1");
 
                 Util.postSuccess(listener, isMute);
             }
